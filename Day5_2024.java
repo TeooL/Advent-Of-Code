@@ -24,13 +24,29 @@ public class Day5_2024 {
             arr.add(array);
         }
 
+        ArrayList<ArrayList<Integer>> correctList = new ArrayList<>();
         for (int i = 0; i < arr.size();i++){
+            ArrayList<Integer> array = arr.get(i);
+            boolean correct = true;
             for (int n = 0; n < rules.size();n++){
-                ArrayList<Integer> rule = new ArrayList<>();
+                String rule = rules.get(i);
+                int rule1 = Integer.parseInt(rule.substring(0,2));
+                int rule2 = Integer.parseInt(rule.substring(3,5));
+                if (array.contains(rule1) && array.contains(rule2)){
+                    if (array.indexOf(rule1) > array.indexOf(rule2)){
+                        correct = false;
+                    }
+                }
+            }
+            if (correct){
+                correctList.add(array);
             }
         }
-
-        System.out.println(rules);
-        System.out.println(arr);
+        int sum = 0;
+        for (int i = 0; i < correctList.size(); i++){
+            ArrayList<Integer> correctArr = correctList.get(i);
+            sum += correctArr.get((correctArr.size()/2));
+        }
+        System.out.println(sum);
     }
 }
