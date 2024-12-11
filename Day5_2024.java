@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class Day5_2024 {
     public static void main(String[] args) throws FileNotFoundException {
-        File f = new File("src/exampleRules.txt");
+        File f = new File("src/day5inputRules.txt");
         Scanner s = new Scanner(f);
         ArrayList<String> rules = new ArrayList<String>();
         while (s.hasNextLine()){
             rules.add(s.nextLine());
         }
-        File f2 = new File("src/exampleinput.txt");
+        File f2 = new File("src/day5input.txt");
         Scanner s2 = new Scanner(f2);
         ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
         while (s2.hasNextLine()){
@@ -72,12 +72,13 @@ public class Day5_2024 {
                         int temp = currentList.indexOf(rule2);
                         currentList.set(currentList.indexOf(rule1), rule2);
                         currentList.set(temp, rule1);
+                        n = 0;
                     }
                 }
             }
             renewedList.add(currentList);
         }
-        System.out.println(renewedList);
+
 
         for (int i = 0; i < renewedList.size(); i++){
             ArrayList<Integer> correctArr = renewedList.get(i);
@@ -86,3 +87,4 @@ public class Day5_2024 {
         System.out.println(part2Sum);
     }
 }
+
