@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
@@ -72,6 +73,7 @@ public class Day5_2024 {
                         int temp = currentList.indexOf(rule2);
                         currentList.set(currentList.indexOf(rule1), rule2);
                         currentList.set(temp, rule1);
+                        n = 0;
                     }
                 }
             }
@@ -86,3 +88,4 @@ public class Day5_2024 {
         System.out.println(part2Sum);
     }
 }
+
